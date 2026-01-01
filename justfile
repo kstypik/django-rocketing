@@ -3,6 +3,8 @@ SANDBOX_DIR := "sandbox/"
 default:
   just --list
 
-recreate:
-    rm -rf {{SANDBOX_DIR}}
+recreate: clear
     copier copy . {{SANDBOX_DIR}} --vcs-ref=HEAD
+
+clear:
+    rm -rf {{SANDBOX_DIR}}
